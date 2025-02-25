@@ -1,0 +1,246 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<body class="home-body">
+   
+<!--Slider-->
+    <div class="container-fluid head-container">
+        {% if messages %}
+        {% for m in messages %}
+            <div class="alert alert-{{m.tags}}">{{m}}</div>
+        {% endfor %}
+    {% endif %}
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                {% load static %}
+        {% for i in slider_img %}
+                
+               
+                <div class="carousel-item active">
+                    <img src="{{ i.slider1.url }}" class="d-block w-100 carousel-img imn "  alt="Slide 1">
+                </div> 
+        
+                <div class="carousel-item">
+                    <img src="{{ i.slider2.url }}" class="d-block w-100 carousel-img imn"  alt="Slide 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ i.slider3.url }}" class="d-block w-100 carousel-img imn"  alt="Slide 3">
+                </div>
+                {% endfor %}
+                
+        
+        
+             <!-- {% if sliders %}
+                  <div class="carousel-item active">
+                      <img src="{{ sliders.slider1.url }}" class="d-block w-100 carousel-img" alt="Slide 1">
+                  </div>
+                  <div class="carousel-item">
+                      <img src="{{ sliders.slider2.url }}" class="d-block w-100 carousel-img" alt="Slide 2">
+                  </div>
+                  <div class="carousel-item">
+                      <img src="{{ sliders.slider3.url }}" class="d-block w-100 carousel-img" alt="Slide 3">
+                  </div>
+              {% endif %} -->
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+        
+    </div>
+    
+
+
+<!--name-->
+
+    <div class="container name-container animate">
+        <h2 class="text text-center fw-bold title">தமிழக வெற்றிக் கழகம்</h2>
+        <h2 class="text text-center fw-bold place">பெரம்பலூர்-621121</h2>
+    </div>
+
+    <div class="container principles-container">
+        <p class="text text-center fw-bold fs">பிறப்பொக்கும் எல்லா உயிர்க்கும் (மக்கள் யாவரும் பிறப்பால் சமமே) <br>சமநிலைச் சமூகம் படைத்தல்</p>
+        <div>
+
+            <div class="container btns d-flex justify-content-center">
+                <a href="{% url 'login' %}"><button class="btn btn-primary">Login</button></a>
+                <a href="{% url 'register' %}"><button class="btn btn-primary">Register</button></a>
+            </div>
+            <div>
+                <!--feature-->
+
+<div class="row"> <!-- Bootstrap grid starts here -->
+    {% for i in feature_img %}
+    <a href="feature/feature_open_view/{{i.id}}">
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4"> <!-- Adding responsive columns -->
+        <div class="parent">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></button>
+                </div>
+                <div class="carousel-inner">
+                    {% if i %}
+                    <div class="carousel-item active">
+                        <img src="{{ i.img1.url }}" class="d-block w-100 carousel-img" alt="Slide 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ i.img2.url }}" class="d-block w-100 carousel-img" alt="Slide 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ i.img3.url }}" class="d-block w-100 carousel-img" alt="Slide 3">
+                    </div>
+                    {% endif %}
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+
+                <div class="slide-btns">
+                    
+                    <h3 class="text text-center text-danger fw-bold mid">{{i.title}}</h3>
+
+            </div>
+        
+            <!-- Flexbox for button alignment -->
+            
+            
+        </div>
+    </div> <!-- End of column for each feature -->
+</a>
+    {% endfor %}
+</div>
+
+            </div>
+            <ul class="principles">
+                <li>ஒரு நாட்டின் மக்களை, அவர்கள் சார்ந்த இனம், மதம், மொழி, சாதி, பாலினம் என்று பிரித்துப் பாகுபடுத்தாமல், சம உரிமைகளை அவர்களுக்கு உத்திரவாதப்படுத்திச் சாத்தியப்படுத்துவது</li>
+
+                <li>ஆட்சி அதிகாரம், சட்டம், நீதி, அரசு இயந்திரங்களைத் தவறாகப் பயன்படுத்தி வெகுஜன மக்களின் அடிப்படைச் சுதந்திர உரிமைகளைப் பறிக்கும் மாநில / ஒன்றிய ஆட்சியாளர்களின் மக்கள் விரோதச் செயல்பாடுகளை எதிர்த்து, மக்களுக்கான ஜனநாயக உரிமைகளை நிலைநாட்டுவது.</li>
+
+                <li>இட ஒதுக்கீடு அல்ல... விகிதாச்சார இடப் பங்கீடே உண்மையான சமூக நீதிக்கு வழி வகுக்கும்.</li>
+
+                <li>ஏற்றத் தாழ்வுகளை அகற்றி, சாதி முழுவதுமாக ஒழிக்கப்படும் காலக்கட்டம் வரை, அனைத்துப் பிரிவினருக்கும் அனைத்துத் துறைகளிலும் விகிதாச்சார அடிப்படையில் பிரதிநிதித்துவம்.</li>
+
+                <li>சாதி, மதம், இனம், நிறம், மொழி, பொருளதாரம், வர்க்கம் மற்றும் பாலின சமத்துவதுடன் கூடிய உரிமை.</li>
+
+                <li>எல்லா நிலைகளிலும் ஆண்களுக்கு நிகரானவர்கள் பெண்கள். மூன்றாம் பாலினத்தவர், மாற்றுத் திறனாளிகள், எல்லா வகைகளிலும் மற்றவர்களுக்குச் சமமானவர்களே.</li>
+
+                <li>மதச் சார்பற்ற, தனிப்பட்ட மத நம்பிக்கையிலும் தலையீடற்ற, அனைத்து மதத்தவரையும் மதநம்பிக்கை அற்றவரையும் சமமாக பாவிக்கும் அரசு ஆட்சி நிர்வாகம்</li>
+
+                <li>தாய் மொழி ஆகிய தமிழ், உலகத்திற்கான இணைப்பு மொழியாக ஆங்கிலம் என இருமொழிக் கொள்கை</li>
+            </ul>
+        </div>
+    </div>
+
+
+<!--Contact-->
+<div class="main-text" id="contact">
+    <h2 class="heading text text-danger text-center fw-bold">Contact Me</h2>
+    <h4 class="text-secondary text-center fw-bold">get in touch with me</h4>
+
+
+
+
+
+    <section class="home" id="home">
+        <div class="hero-info ">
+
+
+            <div class="social-media d-flex justify-content-center">
+                <div class="bg-icon">
+                    <a href="https://www.instagram.com/tvk.lpm.family?igsh=aDU5aDh2djc4NTV6"><i class='bx bxl-instagram'></i></a>
+                    <span></span>
+                </div>
+
+                <div class="bg-icon">
+                    <a href="https://www.facebook.com/share/1EHR98a3Q7/"><i class='bx bxl-facebook'></i></a>
+                    <span></span>
+                </div>
+
+                <div class="bg-icon">
+                    <a href="https://chat.whatsapp.com/ENyKh3K3L9YIi1LKP7YQKA"><i class='bx bxl-whatsapp'></i></a>
+                    <span></span>
+                </div>
+
+                <div class="bg-icon">
+                    <a href="https://www.linkedin.com/in/deva014/"><i class='bx bxl-linkedin'></i></a>
+                    <span></span>
+                </div>
+           
+        </div>
+        </div>
+    </section>
+   
+
+
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="contactSkills container">
+        <div class="contact-info row d-flex justify-content-center">
+            
+            <div class="col-md-5 contact">
+                <form action="" method="POST" enctype="multipart/form-data" class="col ">
+                    <h2 class="text text-primary text-center">User Query</h2>
+    
+                    {% if messages %}
+                        {% for m in messages %}
+                            <div class="alert alert-{{m.tags}}">{{m}}</div>
+                        {% endfor %}
+                    {% endif %}
+    
+                    {% load crispy_forms_tags %}
+                    {% csrf_token %}
+                    {{ feedback|crispy }}
+    
+                    <button class="btn btn-primary w-100">Submit</button>
+                    
+                </form>
+            </div>
+            
+            <div class="col-md-5 contact" >
+                <h2 class="text text-danger text-center">Pledge</h2>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+<!--foter-->
+
+<footer>
+    <div class="foot">
+        
+    <p>Creating © 2025 by <span><a href="https://devasaiyan.netlify.app/" class="foter"><span class="text text-primary fw-bold">Deva</span></a></span> || All Right Reservd.</p>
+</div>     </footer>
+
+</body>
+
+
+
+{% endblock %}

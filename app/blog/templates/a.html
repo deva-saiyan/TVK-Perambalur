@@ -1,0 +1,33 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    from django.shortcuts import get_object_or_404
+
+def update_user(request, id):
+    user_data = get_object_or_404(Register_Model, id=id)  # Safe retrieval
+    user_form = Register_Form(instance=user_data)
+
+    if request.method == 'POST':
+        user_form = Register_Form(request.POST, instance=user_data)
+        if user_form.is_valid():
+            user_form.save()
+            messages.success(request, "User updated successfully!")
+            return redirect('user-data')
+
+    return render(request, 'user_update.html', {'update_form': user_form})

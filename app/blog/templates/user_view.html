@@ -1,0 +1,77 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container head-container">
+      <h2 class="text-center text-primary fw-bold">Name-{{ user.username }}!</h2>
+
+      <div class="row mt-4">
+        <!-- register_data Images Section -->
+        <div class="col-lg-4 col-md-5 col-sm-12 text-center">
+          <img src="{{ register_data.photo.url }}" alt="register_data Picture" class="rounded-circle img-fluid img1" />
+          <br />
+          <img src="{{ register_data.id_photo.url }}" alt="ID Picture" class="img-fluid img2 mt-3" />
+        </div>
+
+        <!-- register_data Details Section -->
+        <div class="col-lg-8 col-md-7 col-sm-12">
+          <table class="table table-bordered table-hover table-striped">
+            <tbody>
+              <tr>
+                <th class="td-head">Name</th>
+                <td>{{ register_data.name }}</td>
+              </tr>
+              <tr>
+                <th class="td-head">Email</th>
+                <td>{{ register_data.email }}</td>
+              </tr>
+              <tr>
+                <th class="td-head">Contact</th>
+                <td>{{ register_data.contact }}</td>
+              </tr>
+              <tr>
+                <th class="td-head">Place</th>
+                <td>{{ register_data.place }}</td>
+              </tr>
+              <tr>
+                <th class="td-head">Address</th>
+                <td>{{ register_data.address }}</td>
+              </tr>
+              <tr>
+                <th class="td-head">District</th>
+                <td>{{ register_data.district }}</td>
+              </tr>
+              <tr>
+                <th class="td-head">Ward</th>
+                <td>{{ register_data.ward }}</td>
+              </tr>
+              <tr>
+                <th class="td-head">Aadhar Number</th>
+                <td>{{ register_data.id_num }}</td>
+              </tr>
+              <tr>
+                <th class="td-head">Joined</th>
+                <td>{{ user.date_joined|date:"d M Y" }}</td>
+              </tr>
+              <tr>
+                <th class="td-head">Status</th>
+                <td>
+                  {% if user.is_staff or user.is_superuser %}
+                  <span class="badge bg-primary">Admin</span>
+                  {% else %}
+                  <span class="badge bg-danger">User</span>
+                  {% endif %}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          
+          <div class="mt-4 btns">
+            <a href="{% url 'update-user' id=user.id %}" class="btn btn-secondary">Edit</a>
+            <a href="{% url 'delete-user' id=user.id %}" class="btn btn-danger">Delete</a>
+          </div> 
+        </div>
+      </div>
+</body>
+{% endblock %}

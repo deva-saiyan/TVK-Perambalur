@@ -1,0 +1,520 @@
+*{
+    text-transform: capitalize;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: blue; /* Optional: Keep the color */
+    font-weight: bold; /* Optional: Make it bold */
+}
+
+:root{
+    --bg-color:#e3edf7;
+    --gradient-white-bg:linear-gradient(0deg,#fff 0%,#edf4fa 51%,#e5eef7 100%);
+    --gradient-color-bg:linear-gradient(180deg,rgba(247,1,120,1)0%,
+                                                rgba(160,8,156,1)51%,
+                                                rgba(99,13,178,1)100%);
+    --main-color:#e6006d;
+    --font-color:#90979f;
+    --hover-box-shadow:rgba(0,0,0,0.19)0px 10px 20px,
+                       rgba(0,0,0,0.23)0px 6px 6px;     
+    --gradient-white-bg2:linear-gradient(98deg,#e5eef7 0%,#fff 100%);                                                          
+}
+
+
+
+/* navbar */
+
+.nav-box{
+    background-color: orange;
+    border-radius: 20px;
+    box-shadow: var(--hover-box-shadow) ;
+    position: fixed;
+    top: 0px;
+    z-index: 10;
+
+}
+
+.brand-name{
+    color: rgb(173, 239, 21);
+}
+
+.nav-name{
+    color: whitesmoke;
+}
+
+.nav-name:hover{
+    color: rgb(204, 236, 23);
+
+    .fa{
+        color: #e6006d;
+    }
+}
+
+.fa{
+    margin-right:5px;
+}
+
+
+
+/*home*/
+
+.home-body{
+    background-color: blanchedalmond;
+}
+
+/*home-slider*/
+.head-container{
+    margin-top: 75px;
+}
+
+.imn {
+    height: 60vh;  /* Set height to 80% of viewport height */
+    width: auto;  /* Set width to 100% of viewport width */
+    object-fit: fill;  /* Ensures images cover the area without distortion */
+}
+
+
+
+
+.name-container{
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+
+.title{
+    color: orangered;
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: #e5eef7;
+}
+
+.place{
+    color: blue;
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: #e5eef7;
+}
+
+
+
+.fs{
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: #e5eef7;
+}
+
+.principles{
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.principles li::before {
+    content: "🐘"; /* Choose your emoji here */
+    display: inline-block;
+    width: 1.5em; /* Adjust space as needed */
+    margin-left: -1.5em; /* Pull emoji into the left margin */
+  }
+
+.principles li{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 6px;
+}
+
+.mid{
+    z-index: 10;
+}
+
+
+
+
+/* Forms */
+
+.form-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    background-color: azure;
+}
+  
+.p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+
+
+.register_form{
+    
+    background-color: whitesmoke;
+    border: 1px solid yellow;
+    padding: 7px;
+    box-shadow: 5px 5px 10px black;
+}
+
+
+/*profile */
+/* General Styling */
+.profile-body {
+    background-color: #f8f9fa;
+    padding-top: 20px;
+}
+
+/* Container */
+.cont {
+    max-width: 900px;
+}
+
+/* Card Styling */
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Profile Images */
+.img1, .img2 {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Table Styling */
+.table {
+    font-size: 16px;
+}
+
+.td-head {
+    font-weight: bold;
+    background-color: #e9ecef;
+}
+
+/* Buttons */
+.btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.img1 {
+    width: 150px;
+    height: 150px;
+}
+
+
+.img2{
+    width: 200px;
+    height: 200px;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .col-md-4 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .img1, .img2 {
+        width: 80%;
+        max-width: 200px;
+    }
+
+    .col-md-8 {
+        text-align: center;
+    }
+
+    .table {
+        font-size: 14px;
+    }
+
+    .btns {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .cont {
+        padding: 15px;
+    }
+
+    .img1, .img2 {
+        width: 100%;
+        max-width: 150px;
+    }
+
+    .table {
+        font-size: 13px;
+    }
+}
+
+
+/* admin */
+
+.admin-body{
+    background-color: silver;
+    
+}
+
+.serverside{
+    background-color: antiquewhite;
+    height: 50vh;
+
+}
+
+.userside{
+    background-color: beige;
+    height: 50vh;
+}
+
+.s{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.a-btn{
+    margin: 20px;
+}
+
+
+/*slider page*/
+
+.parent{
+    margin: 20px;
+}
+
+.slide-btns{
+    
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.s-btns{
+    margin: 15px;
+}
+
+
+
+/* member */
+
+.member-body{
+    background-color: antiquewhite;
+}
+
+.wrapper{
+    margin: 20px;
+}
+
+
+.card {
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+    cursor: pointer;
+    position: relative;
+}
+
+
+
+.card .front-page, .card .back-page {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: transform 0.6s;
+}
+
+.card .front-page {
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(0deg);
+}
+
+.card .back-page {
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg);
+}
+
+.card.flipped .front-page {
+    transform: rotateY(-180deg);
+}
+
+.card.flipped .back-page {
+    transform: rotateY(0deg);
+}
+
+.card-info {
+    position: absolute;
+    bottom: 10px; /* Adjusts the text to the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+    padding: 1px;
+    background: rgba(0, 0, 0, 0.1); /* Optional: Adds background for readability */
+    color: white; /* Ensures text visibility */
+    border-radius: 5px;
+}
+
+
+
+@media (max-width: 1008px) {
+    .card {
+        width: 250px;
+        height: 250px;
+        perspective: 1000px;
+        cursor: pointer;
+        position: relative;
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        width: 100px;
+        height: 100px;
+        perspective: 1000px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    
+}
+
+/* social-media */
+
+
+.social-media a{
+    width: 42px;
+    height: 42px;
+    font-size: 1.5rem;
+    color: var(--main-color);
+    background: #fff;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: .4s;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+
+.social-media a:hover{
+    background: var(--gradient-color-bg);
+    color: #fff;
+}
+
+.bg-icon{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.bg-icon span{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-color-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: animate 1s linear infinite;
+}
+
+.contact{
+    margin: 10px;
+    border: 0.2px solid black;
+    background-color: beige;
+ 
+ }
+
+
+/* contact */
+.contactSkills{
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.contact-info,.skills{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+
+.contact-info input,
+.contact-info form textarea{
+    width: 100%;
+}
+
+.contact-info form input,
+.contact-info form textarea{
+    /* width: 100%; */
+    padding: .8rem;
+    border: 2px solid #e8e1e1;
+    margin: .5rem 0;
+    background: whitesmoke;
+    border-radius: 5px;
+    outline: none;
+    transition: .3s;
+}
+
+.contact-info form .input-box{
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-box input{
+    width: 49%;
+}
+
+form input:focus,form textarea:focus{
+    filter: brightness(100%);
+    background: #d2e9ff;
+    border: 2px solid #f8caca;
+}
+
+form textarea{
+    resize: none;
+}
+
+form .btn{
+    padding: 15px 20px;
+    cursor: pointer;
+    border: none;
+}
+
+
+
+
+
+/* foter*/
+
+.foot{
+    background-color: #ddd;
+    border-radius: 20px;
+}
+
+
+footer{
+    text-align: center;
+    margin: 0 8%;
+    padding: 2rem 0;
+    border-top: 2px solid #e8e1e1;
+}

@@ -1,0 +1,111 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+
+    <div class="container head-container">
+        <h1 class="text-primary text-center fw-bold home-line heading">User Details</h1>
+    </div>
+    <div class="container col-md well table-responsive">
+
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{message.tags}}">{{message}}</div>
+        {% endfor %}
+    {% endif %} 
+
+    <div class="container">
+        
+        <a href="{% url 'register' %}"><button class="btn btn-primary btn-lg w-60">New User</button></a>
+
+        <hr>
+    </div>
+
+    <table class="table table-bordered text-center table-striped table-hover  col-md">
+        
+        <thead class="table-primary">
+            
+                
+            </tr>
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Mail</th>
+                <th>Address</th>                    
+                <th>More</th>
+                
+            </tr>
+            
+        </thead>
+        <tbody>
+            {% if register_data %}
+                {% for data in register_data %}
+                    <tr>
+                        <td style="text-align:center">{{ forloop.counter }}</td>
+                        <td>{{ data.name }}</td>
+                        <td style="text-align:center">{{ data.age }}</td>
+                        <td>{{ data.email }}</td>   
+                        <td>{{ data.address }}</td> 
+                        
+                        <td style="text-align:center">
+                            <a href=" {% url 'user_view' data.id %}" class="btn btn-danger">Go</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            
+            {% endif %}
+                    
+        </tbody>
+    </table>
+    </div>
+   
+    
+<!---------------------------------------------------------------------------------------------------->
+<div class="container heading-div"></div>
+    <h1 class="text-primary text-center fw-bold home-line heading">User Feedback</h1>
+</div>
+<div class="container col-md well table-responsive">
+
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}}">{{message}}</div>
+    {% endfor %}
+{% endif %} 
+
+<table class="table table-bordered text-center table-hover table-striped  col-md">
+    
+    <thead class="table-info">
+        
+            
+        </tr>
+        <tr>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Address</th> 
+            <th>Problem</th>                   
+          
+        </tr>
+        
+    </thead>
+    <tbody>
+        {% if feedback_data %}
+            {% for ma in feedback_data %}
+                <tr>
+                    <td style="text-align:center">{{ forloop.counter }}</td>
+                    <td>{{ ma.name }}</td>
+                    <td style="text-align:center">{{ ma.contact }}</td>   
+                    <td>{{ ma.address }}</td> 
+                    <td>{{ ma.problem }}</td> 
+                    
+                </tr>
+            {% endfor %}
+        
+        {% endif %}
+                
+    </tbody>
+</table>
+</div>
+
+{% endblock %}

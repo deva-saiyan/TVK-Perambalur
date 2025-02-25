@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+ {% load crispy_forms_tags %}
+  {% block content %} 
+  {% load static %}
+
+<body class="form-body">
+  <div class="head-container container-fluid p">
+    <div class="parent">
+      <div class="container mt-5 chid">
+        <form
+          action=""
+          method="POST"
+          enctype="multipart/form-data"
+          class="register_form"
+        >
+          <h2 class="text text-primary text-center">User Registration</h2>
+
+          {% if messages %}
+          
+          {% for m in messages %}
+          <div class="alert alert-{{m.tags}}">{{m}}</div>
+          {% endfor %} 
+          {% endif %} 
+          
+          {%csrf_token%} 
+          {{ register_form|crispy }}
+
+          <button class="btn btn-primary w-100">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+{% endblock %}

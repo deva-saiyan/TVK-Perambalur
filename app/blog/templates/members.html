@@ -1,0 +1,43 @@
+{% extends 'index.html' %} {% load static %} {% block content %}
+<body class="member-body">
+  <div class="head-container">
+    <div class="container">
+      <div class="row justify-content-center">
+        {% for i in member %}
+        <div class="wrapper col d-flex justify-content-center">
+          <div class="card" onclick="this.classList.toggle('')">
+            <div
+              class="front-page"
+              style="background-image: url('{{ i.photo.url }}'); background-size:cover; background-position: center;"
+            >
+            <div class="card-info">
+                <p class="text text-dark fw-bold text-bottom">{{ i.name }}</p>
+            </div>
+              
+            </div>
+
+            <div class="back-page" style="background-image: url('{{ i.id_photo.url }}'); background-size: cover; background-position: center;">
+              
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <script>
+    let lastFlipped = null;
+
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', function() {
+        if (lastFlipped && lastFlipped !== this) {
+            lastFlipped.classList.remove('flipped'); // Reset previous card
+        }
+        this.classList.toggle('flipped'); // Flip the clicked card
+        lastFlipped = this.classList.contains('flipped') ? this : null;
+    });
+});
+  </script>
+</body>
+{% endblock %}

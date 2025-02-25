@@ -1,0 +1,36 @@
+{% extends 'index.html' %} 
+{% load crispy_forms_tags %} 
+{% load static %} 
+
+
+{%block content %}
+<body class="admin-body">
+
+    <div class="container-fulid head-container">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6 serverside">
+                    <div><h2 class="text text-center text-primary fw-bold ">Server Edit</h2></div>
+                    
+
+                    <div class="s">
+                        <a href="{% url 'slider' %}"><button class="btn btn-primary fw-bold btn-lg col-sm a-btn">Slider Page</button></a>
+                        <a href="{% url 'feature' %}"><button class="btn btn-primary fw-bold btn-lg col-sm a-btn">Feature Page</button></a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 userside">
+                    <h2 class="text text-center text-danger fw-bold">User Edit</h2>
+
+                    <div class="s">
+                        <a href="{% url 'user-data' %}"><button class="btn btn-primary fw-bold btn-lg col-sm a-btn">User Page</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+{% endblock %}
+
