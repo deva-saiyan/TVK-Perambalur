@@ -17,8 +17,6 @@ import os
 
 
 
-import dj_database_url
-
 
 
 
@@ -149,7 +147,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'blog/static'),  # Ensure correct path
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'blog/static')
+
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"

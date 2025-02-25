@@ -40,34 +40,35 @@ def home(request):
 # user register -----------------------------------------------------------------------------------
 
 def user_register(request):
-    register = Register_Form()
-
     if request.method == 'POST':
-        myform = Register_Form(request.POST, request.FILES)  # Handle file uploads
+        register_form = Register_Form(request.POST, request.FILES)
 
-        if myform.is_valid():
-            myform.save()
-
-        if request.method=='POST':
-            name = request.POST['name']
-            email = request.POST['email']
-            password = request.POST['password']
-            conform_password = request.POST['conform_password']
+        if register_form.is_valid():
+            name = register_form.cleaned_data['name']
+            email = register_form.cleaned_data['email']
+            password = register_form.cleaned_data['password']
+            conform_password = request.POST.get('conform_password')  # Fix spelling
 
             if password == conform_password:
-                user= User.objects.create_user(username = name , email = email , password =password)
-                user.is_staff =False
-                user.is_superuser =False
-                messages.success(request, "Registration successful!")
-                return redirect('login')  # Change to the appropriate success page
-            
-            else:
-                messages.warning(request, "Password does't match!")
-                return redirect('register')
-   
-          # Ensure form is created in GET requests
+                if User.objects.filter(username=name).exists():
+                    messages.warning(request, "Username already taken. Choose another one.")
+                    return redirect('register')
 
-    return render(request, 'register_form.html', {'register_form': register})
+                user = User.objects.create_user(username=name, email=email, password=password)
+                user.is_staff = False
+                user.is_superuser = False
+                user.save()
+
+                messages.success(request, "Registration successful!")
+                return redirect('login')
+            else:
+                messages.warning(request, "Passwords do not match!")
+                return redirect('register')
+
+    else:
+        register_form = Register_Form()
+
+    return render(request, 'register_form.html', {'register_form': register_form})
 
 
 # user login ----------------------------------------------------------------------------------------------
